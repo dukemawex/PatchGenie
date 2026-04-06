@@ -1,3 +1,18 @@
+Metadata-Version: 2.4
+Name: patchgenie
+Version: 0.1.0
+Summary: AI-powered CVE / SAST patch agent that generates secure code patches
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: openai>=1.75.0
+Requires-Dist: pydantic>=2.11.1
+Requires-Dist: click>=8.1.8
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3.5; extra == "dev"
+Requires-Dist: pytest-mock>=3.14.0; extra == "dev"
+Requires-Dist: ruff>=0.9.0; extra == "dev"
+
 # PatchGenie
 
 AI-powered CVE / SAST secure-patch agent.  Given a vulnerability identifier and description, PatchGenie sends the details to an OpenAI chat model (default: `gpt-4o`) using a **Senior Security Software Engineer (L7)** system prompt and returns a structured JSON report containing:
