@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchgenie"
+version = "0.1.0"
+description = "AI-powered CVE / SAST patch agent that generates secure code patches"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "openai>=1.75.0",
+    "pydantic>=2.11.1",
+    "click>=8.1.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-mock>=3.14.0",
+    "ruff>=0.9.0",
+]
+
+[project.scripts]
+patchgenie = "patchgenie.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["patchgenie*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "S", "B", "A"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
